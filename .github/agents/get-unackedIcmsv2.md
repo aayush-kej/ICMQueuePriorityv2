@@ -1,6 +1,6 @@
 ---
-name: get-unackedIcmsv2
-description: 'Get a list of ICMs that have not been acknowledged'
+name: get-unresolvedICMsv2
+description: 'Get a list of ICMs that do not have an owner and are not in the Resolved state'
 
 mcp-servers:
   icm:
@@ -10,10 +10,7 @@ mcp-servers:
     tools: ["*"]
 ---
 
-For the ICM queue "EEE Cloudnet" pull all the icms in the queue using the mcp server icm , that matches the condition:
-1. has no owner and 
-2. is not in the Resolved State
-
+For the ICM queue "EEE Cloudnet" only get ICMs that are in State (Active or Resolved) and the assignedTo field is empty.
 
 Create a table with
 1. ICM ID
