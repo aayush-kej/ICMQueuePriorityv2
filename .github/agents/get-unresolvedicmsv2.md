@@ -30,3 +30,9 @@ IncidentsSnapshotV2
 ```
 
 Summarize the output in a table.
+
+- add a severityScore to the icms based on the following criteria:
+  - If Severity is "1", severityScore is 200000
+  - If Severity is "2", severityScore is 100000
+  - If Severity is "2.5", severityScore is 75000
+  - If Severity is "3", severityScore is 50000
