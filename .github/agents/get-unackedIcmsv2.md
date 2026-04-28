@@ -1,12 +1,12 @@
 ---
-name: get-unackedIcms
+name: get-unackedIcmsv2
 description: 'Get a list of ICMs that have not been acknowledged'
 
 mcp-servers:
   icm:
     type: local
     command: agency
-    args: ["icm", "mcp"]
+    args: [icm, mcp]
     tools: ["*"]
 ---
 
