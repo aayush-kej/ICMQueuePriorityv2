@@ -30,6 +30,7 @@ IncidentsSnapshotV2
 ```
 ---
 GET additional Information:
+
   Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
   Opon receiving the response add the response to the existing table based on the support ticket id field.
 
@@ -49,6 +50,7 @@ GET additional Information:
 
 ---
 SCORING Criteria:
+
     Add a score911 column
       - If the Tags column contains "icm911" then set this to 75000 otherwise set it to 0
 
