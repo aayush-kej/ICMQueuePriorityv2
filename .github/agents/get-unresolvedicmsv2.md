@@ -28,22 +28,24 @@ IncidentsSnapshotV2
 | distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId, Keywords
 | extend Age = datetime_diff('day', now(), CreateDate)
 ```
-Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
-Opon receiving the response add the response to the existing table based on the support ticket id field.
+For the below tasks do not include ICMS that do not have a SupportTicket ID
 
-Call the get-icmhops agents to get the number of hops for each incident. Pass the incident ids to that agent.
-Opon receiving the response and add the number of hops to the existing table based on the incident id field.
+  Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
+  Opon receiving the response add the response to the existing table based on the support ticket id field.
 
-Call the get-lastchange agent to get the last changed date and user for each incident. Pass the incident ids to that agent.
-Opon receiving the response add the last changed date and user to the existing table based on the incident id field.
+  Call the get-icmhops agents to get the number of hops for each incident. Pass the incident ids to that agent.
+  Opon receiving the response and add the number of hops to the existing table based on the incident id field.
 
-Summarize the output in a table.
+  Call the get-lastchange agent to get the last changed date and user for each incident. Pass the incident ids to that agent.
+  Opon receiving the response add the last changed date and user to the existing table based on the incident id field.
 
-- add a severityScore to the icms based on the following criteria:
+  Add a severityScore to the icms based on the following criteria:
   - If Severity is "1", severityScore is 200000
   - If Severity is "2", severityScore is 100000
   - If Severity is "2.5", severityScore is 75000
   - If Severity is "3", severityScore is 50000
   - If Severity is "4", severityScore is 25000
 
+Create two tables in the end. One with ICMs that has support ticket id and the other one with ICMs that do not have a support ticket id. 
+Only the first table should have the additional information. 
 
