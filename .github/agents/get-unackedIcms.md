@@ -3,10 +3,10 @@ name: get-unackedIcms
 description: 'Get a list of ICMs that have not been acknowledged'
 
 mcp-servers:
-  icm:
+  ado:
     type: local
     command: agency
-    args: ["icm", "mcp"]
+    args: ["mcp", "ado"]
     tools: ["*"]
 ---
 
