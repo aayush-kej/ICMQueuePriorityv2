@@ -1,5 +1,5 @@
 ---
-name: get-icmhops
+name: get-lastchange
 description: 'Get the last changed date and by whom'
 
 mcp-servers:

@@ -1,0 +1,67 @@
+
+[
+  {
+    "TPID": 50658619,
+    "CustomerName": "ROADGET BUSINESS PTE. LTD.",
+    "AceEmail": [
+      "aconkle@microsoft.com",
+      "stevenxu@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 784852,
+    "CustomerName": "Walmart Inc.",
+    "AceEmail": [
+      "ace-walmart@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 641918,
+    "CustomerName": "AT&T Services, Inc.",
+    "AceEmail": [
+      "att-ace@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 642489,
+    "CustomerName": "Morgan Stanley Services Group Inc.",
+    "AceEmail": [
+      "ace-morganstanley@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 641104,
+    "CustomerName": "Fidelity Technology Group, LLC",
+    "AceEmail": [
+      "ace-fidelity@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 1289655,
+    "CustomerName": "BlackRock, Inc",
+    "AceEmail": [
+      "ace-blackrock@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 2716794,
+    "CustomerName": "Bridgewater Associates, LP.",
+    "AceEmail": [
+      "ace-bridgewater@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 1490448,
+    "CustomerName": "Epic Systems Corporation",
+    "AceEmail": [
+      "ace-epicsystems@microsoft.com"
+    ]
+  },
+  {
+    "TPID": 641658,
+    "CustomerName": "GENERAL MOTORS CORPORATION",
+    "AceEmail": [
+      "ace-gm@microsoft.com"
+    ]
+  }
+]
