@@ -3,17 +3,30 @@ name: get-unresolvedICMsv2
 description: 'Get a list of ICMs that do not have an owner and are not in the Resolved state'
 
 mcp-servers:
-  icm:
+  kusto:
     type: local
     command: agency
-    args: ["mcp", "icm"]
+    args: 
+    - "mcp"
+    - "kusto"
+    - "--service-uri" 
+    - "https://icmcluster.kusto.windows.net"
+    - "--database"
+    - "IcMDataWarehouse"
     tools: ["*"]
 ---
 
-For the ICM queue "EEE Cloudnet" only get ICMs that are in State (Active or Resolved) and the assignedTo field is empty.
+Your job is to pull a list of ICMs using the kusto MCP server. 
+These are ICMs that do not have an owner and do not are still not resolved.
+Run the below query to get the data:
 
-Create a table with
-1. ICM ID
-2. ICM Age
-3. Title
-4. Severity 
+```
+IncidentsSnapshotV2
+| where isempty( OwningContactAlias)
+| where Status != "RESOLVED"
+| where OwningTeamId in (31366)
+| distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId
+| extend Age = datetime_diff('day', now(), CreateDate)
+```
+
+Summarize the output in a table.
