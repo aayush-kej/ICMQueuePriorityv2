@@ -14,6 +14,7 @@ mcp-servers:
     - "--database"
     - "IcMDataWarehouse"
     tools: ["*"]
+    
 ---
 
 Your job is to pull a list of ICMs using the kusto MCP server. 
