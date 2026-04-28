@@ -14,8 +14,10 @@ mcp-servers:
     - "--database"
     - "IcMDataWarehouse"
     tools: ["*"]
-    
+
 ---
+
+**Instructions:**
 
 Your job is to pull a list of ICMs using the kusto MCP server. 
 These are ICMs that do not have an owner and do not are still not resolved.
@@ -30,7 +32,7 @@ IncidentsSnapshotV2
 | extend Age = datetime_diff('day', now(), CreateDate)
 ```
 ---
-GET additional Information:
+**GET additional Information:**
 
   Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
   Opon receiving the response add the response to the existing table based on the support ticket id field.
@@ -42,15 +44,15 @@ GET additional Information:
   Opon receiving the response add the last changed date and user to the existing table based on the incident id field.
   if the last change date is empty set its value to the createddate
 
-  Add a severityScore to the icms based on the following criteria:
-  - If Severity is "1", severityScore is 200000
-  - If Severity is "2", severityScore is 100000
-  - If Severity is "2.5", severityScore is 75000
-  - If Severity is "3", severityScore is 50000
-  - If Severity is "4", severityScore is 25000
-
 ---
-SCORING Criteria:
+**SCORING Criteria:**
+
+    Add a severityScore to the icms based on the following criteria:
+    - If Severity is "1", severityScore is 200000
+    - If Severity is "2", severityScore is 100000
+    - If Severity is "2.5", severityScore is 75000
+    - If Severity is "3", severityScore is 50000
+    - If Severity is "4", severityScore is 25000
 
     Add a score911 column
       - If the Tags column contains "icm911" then set this to 75000 otherwise set it to 0
