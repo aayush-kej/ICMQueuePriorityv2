@@ -29,10 +29,13 @@ IncidentsSnapshotV2
 | extend Age = datetime_diff('day', now(), CreateDate)
 ```
 Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
-Open receiving the response add the response to the existing table based on the support ticket id field.
+Opon receiving the response add the response to the existing table based on the support ticket id field.
 
 Call the get-icmhops agents to get the number of hops for each incident. Pass the incident ids to that agent.
-Open receiving the response and add the number of hops to the existing table based on the incident id field.
+Opon receiving the response and add the number of hops to the existing table based on the incident id field.
+
+Call the get-lastchange agent to get the last changed date and user for each incident. Pass the incident ids to that agent.
+Opon receiving the response add the last changed date and user to the existing table based on the incident id field.
 
 Summarize the output in a table.
 
