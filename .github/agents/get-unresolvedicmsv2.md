@@ -25,9 +25,14 @@ IncidentsSnapshotV2
 | where isempty( OwningContactAlias)
 | where Status != "RESOLVED"
 | where OwningTeamId in (31366)
-| distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId
+| distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId, Keywords
 | extend Age = datetime_diff('day', now(), CreateDate)
 ```
+Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
+Open receiving the response add the response to the existing table based on the support ticket id field.
+
+Call the get-icmhops agents to get the number of hops for each incident. Pass the incident ids to that agent.
+Open receiving the response and add the number of hops to the existing table based on the incident id field.
 
 Summarize the output in a table.
 
@@ -36,3 +41,6 @@ Summarize the output in a table.
   - If Severity is "2", severityScore is 100000
   - If Severity is "2.5", severityScore is 75000
   - If Severity is "3", severityScore is 50000
+  - If Severity is "4", severityScore is 25000
+
+
