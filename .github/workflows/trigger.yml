@@ -14,4 +14,4 @@ jobs:
 
       - name: Run your agent
         run: |
-              agency agency copilot --agent get-unresolvedicmsv2
+              copilot run get-unresolvedICMsv2.md
