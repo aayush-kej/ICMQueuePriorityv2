@@ -1,5 +1,3 @@
-.md
-
 ---
 name: get-customerinfo-subscriptionid
 description: 'Gets customer information for a list of provided Subscription IDs  using the Kusto MCP server.'
