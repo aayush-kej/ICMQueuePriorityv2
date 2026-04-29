@@ -1,6 +1,6 @@
 ---
-name: get-customerinfo
-description: 'Gets customer information for a list of provided incident IDs (ICMs) using the Kusto MCP server.'
+name: get-customerinfo-IncidentID
+description: 'Gets customer information for a list of provided incident IDs (support ticket ids) using the Kusto MCP server.'
 
 mcp-servers:
   kusto:

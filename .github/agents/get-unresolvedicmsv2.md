@@ -28,21 +28,25 @@ IncidentsSnapshotV2
 | where isempty( OwningContactAlias)
 | where Status != "RESOLVED"
 | where OwningTeamId in (31366)
-| distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId, Keywords, Tags
+| distinct IncidentId, CreateDate, Title, Severity, Status, SupportTicketId, Keywords, Tags, SubscriptionId
 | extend Age = datetime_diff('day', now(), CreateDate)
 ```
 ---
 **GET additional Information:**
 
-  Call the agent get-customerinfo to get the customer information. Pass only the support ticket ids to that agent. 
-  Opon receiving the response add the response to the existing table based on the support ticket id field.
+  Call the agent get-customerinfo-IncidentID to get the customer information. Pass only the support ticket ids to that agent. 
+  Opon receiving the response add all the columns from the response to the existing table based on the support ticket id field.
 
   Call the get-icmhops agents to get the number of hops for each incident. Pass the incident ids to that agent.
-  Opon receiving the response and add the number of hops to the existing table based on the incident id field.
+  Opon receiving the response aadd all the columns from the response to the existing table based on the incident id field.
 
   Call the get-lastchange agent to get the last changed date and user for each incident. Pass the incident ids to that agent.
-  Opon receiving the response add the last changed date and user to the existing table based on the incident id field.
+  Opon receiving the responseadd all the columns from the response to the existing table based on the incident id field.
   if the last change date is empty set its value to the createddate
+
+  Call the agent get-customerinfo-subscriptionid to get the customer information. Pass only the subscription ids to that agent. 
+  Opon receiving the response add all the columns from the response to the existing table based on the subscription id field.
+
 
 ---
 **SCORING Criteria:**
@@ -78,5 +82,12 @@ IncidentsSnapshotV2
 
     Add a scoreHop column and set the value to the number of hops multiplied by 1000 (to give more weight to incidents that have been bounced around teams)
 
+    Add a scoreCx column and set the value to 20000 if the customer_tpid or tpidfromsubid field exists as a TPID in the file list-specialCustomers.json. Else set it to 0
+
+    Add a scoreS500 column and set the value to 20000 if isS500fromSubid is set to "Yes". else set it to 0
+
     Finaly create a totalScore column which is the sum of all the individual score columns.
 ---
+
+Display the table with all the columns 
+Sort it in ascending order
