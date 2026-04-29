@@ -89,5 +89,63 @@ IncidentsSnapshotV2
     Finaly create a totalScore column which is the sum of all the individual score columns.
 ---
 
-Display the table with all the columns 
-Sort it in ascending order
+**Add Customer Attributes**
+
+  Create a column called CustomerAttributes which is a concatenated string of all the below attributes based on the below rules:
+- If scoreCx > 0 add "ACE Special Care" to the string
+- If scoreOED > 0 add "OED" to the string
+- If scoreS500 > 0 add "S500" to the string
+- If scoreSfMC > 0 add "SfMC" to the string
+- If scoreCAS > 0 add "CitizenAlliance" to the string
+- If scoreARR > 0 add "ARR" to the string
+- If scorePremier == 5000 add "Premier Unified" to the string, else if scorePremier == 3000 add "Premier Standard" to the string
+- If Servicelevel contains 'professional' add "Broad Commercial" to the string 
+
+---
+
+**CriHealthIssues**
+
+create a column called CriHealthIssues which is a concatenated string of all the critical health issues based on the below rules:
+- If score911 > 0 add "CSS Ops Center 911" to the string
+- If scoreStale > 0 add "Stale" to the string
+- If scoreAged > 0 add "Aged" to the string
+- If scoreHops > 0 add "High Transfer Count" to the string
+
+---
+
+
+**Output**
+
+Assign a priority number to each ICM based on the totalScore column, where the highest totalScore gets a priority of 1.
+The output should be json formated for every ICM. 
+The json should include the columnd
+- Priority
+- ICM ID
+- ICM link = "https://portal.microsofticm.com/imp/v3/incidents/details/{IncidentId}/home"
+- Severrity
+- Status
+- SupportProductName
+- Title
+- CustomerAttributes
+- CriHealthIssues
+- supportTicketId
+- TotalScore
+- score911
+- scoreStale
+- scoreAged
+- scoreHop
+- scoreCx
+- scoreS500
+- scoreOED
+- scoreSfMC
+- scoreCAS
+- scoreARR
+- scorePremier
+- hops
+---
+
+
+
+
+
+
